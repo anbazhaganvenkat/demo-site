@@ -14,6 +14,7 @@ import {
   MDBContainer,
   MDBRow,
   MDBCol,
+  MDBBtn,
 } from "mdb-react-ui-kit";
 const API = process.env.REACT_APP_API_PATH;
 
@@ -56,7 +57,7 @@ function DetailsPage() {
                   className="col-md-6 col-xl-4  mb-5"
                   onClick={(e) => redirect(data.idMeal)}
                 >
-                  <MDBCard className="mb-5">
+                  <MDBCard className="mb-5" alignment="center">
                     <>
                       <MDBCardImage
                         src={data.strMealThumb}
@@ -67,6 +68,7 @@ function DetailsPage() {
                         <MDBCardTitle>
                           <b>{data.strMeal}</b>
                         </MDBCardTitle>
+                        <MDBBtn className="btn btn-info">Get Recipe</MDBBtn>
                       </MDBCardBody>
                     </>
                   </MDBCard>

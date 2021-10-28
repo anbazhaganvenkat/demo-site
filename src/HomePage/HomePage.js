@@ -10,6 +10,7 @@ import {
   MDBCardImage,
   MDBContainer,
   MDBRow,
+  MDBBtn,
   MDBCol,
 } from "mdb-react-ui-kit";
 import GifLoader from "react-gif-loader";
@@ -34,7 +35,7 @@ function HomePage() {
           className="col-md-6 col-xl-4  mb-5"
           onClick={(e) => redirect(data.strCategory)}
         >
-          <MDBCard className="box-shadow mb-5">
+          <MDBCard className="box-shadow mb-5" alignment="center">
             <>
               <MDBCardImage
                 src={data.strCategoryThumb}
@@ -48,6 +49,7 @@ function HomePage() {
                 <MDBCardText className="truncate">
                   {data.strCategoryDescription}
                 </MDBCardText>
+                <MDBBtn className="btn btn-info">Get Recipe</MDBBtn>
               </MDBCardBody>
             </>
           </MDBCard>
