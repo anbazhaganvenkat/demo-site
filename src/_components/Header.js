@@ -5,22 +5,24 @@ import {
   MDBNavbarBrand,
   MDBBtn,
 } from "mdb-react-ui-kit";
+import { history } from "../_helpers";
 
-const onChange = (e) => {
-  console.log(e.target.value, "fff");
+const redirect = () => {
+  history.push("/");
 };
 
-function Header() {
+function Header({ onChange }) {
   return (
     <>
       <MDBNavbar light bgColor="light">
         <MDBContainer fluid>
-          <MDBNavbarBrand href="/">
+          <MDBNavbarBrand>
             <img
               src="https://www.themealdb.com/images/logo-small.png"
               height="30"
               alt=""
               loading="lazy"
+              onClick={redirect()}
             />
             <div className="mx-auto">
               <form className="input-group d-flex">
@@ -29,7 +31,9 @@ function Header() {
                   className="form-control"
                   placeholder="Search"
                   aria-label="Search"
-                  onChange={onChange}
+                  onChange={(e) => {
+                    onChange(e);
+                  }}
                 />
               </form>
             </div>

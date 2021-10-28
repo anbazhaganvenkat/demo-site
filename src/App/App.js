@@ -7,27 +7,39 @@ import { DetailsPage } from "../DetailsPage";
 import { CardPage } from "../CardPage";
 import { Header } from "../_components";
 import { Footer } from "../_components";
+import { CardItems } from "../_components";
 import "./styles.css";
 
 function App() {
   const loading = useSelector((state) => state.categories.loading);
   const dispatch = useDispatch();
+  var userDetailContext = React.createContext(null);
+  const [value, setValue] = React.useState("");
 
-  useEffect(() => {}, []);
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
 
   return (
     <>
-      <Header />
+      <Header onChange={handleChange} />
+      {value ? (
+        <div className="container mt-3">
+          <h3>Search Result</h3>
+          <CardItems value={value} />
+        </div>
+      ) : (
+        <div className="container mt-3">
+          <Router history={history}>
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+              <Route exact path="/category/:name" component={DetailsPage} />
+              <Route exact path="/deatils/:id" component={CardPage} />
+            </Switch>
+          </Router>
+        </div>
+      )}
 
-      <div className="container mt-3">
-        <Router history={history}>
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route exact path="/category/:name" component={DetailsPage} />
-            <Route exact path="/deatils/:id" component={CardPage} />
-          </Switch>
-        </Router>
-      </div>
       <Footer />
     </>
   );
