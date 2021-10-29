@@ -72,6 +72,7 @@ function CardPage() {
                           src={data.strMealThumb}
                           position="top"
                           alt={data.strMeal}
+                          className="hover-zoom"
                         />
 
                         <MDBCardBody>
@@ -91,7 +92,7 @@ function CardPage() {
 
                     <button
                       type="button"
-                      class="btn btn-primary btn-md mr-1 mb-2 waves-effect waves-light"
+                      class="btn btn-success btn-md mr-1 mb-2 waves-effect waves-light"
                     >
                       Order Now
                     </button>

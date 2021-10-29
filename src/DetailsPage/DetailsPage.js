@@ -15,6 +15,12 @@ import {
   MDBRow,
   MDBCol,
   MDBBtn,
+  MDBDropdown,
+  MDBDropdownMenu,
+  MDBDropdownToggle,
+  MDBDropdownItem,
+  MDBDropdownLink,
+  MDBIcon,
 } from "mdb-react-ui-kit";
 const API = process.env.REACT_APP_API_PATH;
 
@@ -43,13 +49,41 @@ function DetailsPage() {
   const redirect = (id) => {
     history.push(`/deatils/${id}`);
   };
+  const back = () => {
+    history.push(`/`);
+  };
   return (
     <>
       {isLoading ? (
         <p>Loading ...</p>
       ) : (
         <>
-          <h1>{name}</h1>
+          <div className="row">
+            <div className="col-md-6 col-xl-6  mb-5">
+              <MDBBtn className="btn btn-info" onClick={back}>
+                Back
+              </MDBBtn>
+            </div>
+            <div
+              className="col-md-6 col-xl-6  mb-5"
+              style={{ textAlign: "end" }}
+            >
+              <MDBDropdown>
+                <MDBDropdownToggle tag="a" className="btn btn-primary">
+                  Sort By
+                </MDBDropdownToggle>
+                <MDBDropdownMenu>
+                  <MDBDropdownItem>
+                    <MDBDropdownLink href="#">A to Z</MDBDropdownLink>
+                  </MDBDropdownItem>
+                  <MDBDropdownItem>
+                    <MDBDropdownLink href="#">Z to A</MDBDropdownLink>
+                  </MDBDropdownItem>
+                </MDBDropdownMenu>
+              </MDBDropdown>
+            </div>
+          </div>
+
           <div className="row">
             {data.meals &&
               data.meals.map((data) => (
@@ -68,7 +102,7 @@ function DetailsPage() {
                         <MDBCardTitle>
                           <b>{data.strMeal}</b>
                         </MDBCardTitle>
-                        <MDBBtn className="btn btn-info">Get Recipe</MDBBtn>
+                        <MDBBtn className="btn btn-warning">Get Recipe</MDBBtn>
                       </MDBCardBody>
                     </>
                   </MDBCard>

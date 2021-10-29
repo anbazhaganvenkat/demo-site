@@ -49,7 +49,7 @@ function HomePage() {
                 <MDBCardText className="truncate">
                   {data.strCategoryDescription}
                 </MDBCardText>
-                <MDBBtn className="btn btn-info">Get Recipe</MDBBtn>
+                <MDBBtn className="btn btn-warning">Get Recipe</MDBBtn>
               </MDBCardBody>
             </>
           </MDBCard>
