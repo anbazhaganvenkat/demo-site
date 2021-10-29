@@ -24,12 +24,12 @@ function App() {
     <>
       <Header onChange={handleChange} />
       {value ? (
-        <div className="container mt-3">
+        <div className="container  mt-100">
           <h3>Search Result</h3>
           <CardItems value={value} />
         </div>
       ) : (
-        <div className="container mt-3">
+        <div className="container  mt-100">
           <Router history={history}>
             <Switch>
               <Route exact path="/" component={HomePage} />

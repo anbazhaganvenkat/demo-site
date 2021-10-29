@@ -25,3 +25,18 @@ body {
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   height: 450px !important;
 }
+
+.cursor-pointor {
+  cursor: pointer;
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+.mt-100 {
+  margin-top: 100px;
+}

@@ -1,9 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   MDBContainer,
   MDBNavbar,
   MDBNavbarBrand,
+  MDBNavbarToggler,
+  MDBIcon,
+  MDBNavbarNav,
+  MDBNavbarItem,
+  MDBNavbarLink,
   MDBBtn,
+  MDBDropdown,
+  MDBDropdownToggle,
+  MDBDropdownMenu,
+  MDBDropdownItem,
+  MDBDropdownLink,
+  MDBCollapse,
 } from "mdb-react-ui-kit";
 import { history } from "../_helpers";
 
@@ -12,35 +23,46 @@ const redirect = () => {
 };
 
 function Header({ onChange }) {
+  const [showBasic, setShowBasic] = useState(false);
+
   return (
-    <>
-      <MDBNavbar light bgColor="light">
-        <MDBContainer fluid>
-          <MDBNavbarBrand>
-            <img
-              src="https://www.themealdb.com/images/logo-small.png"
-              height="30"
-              alt=""
-              loading="lazy"
-              onClick={redirect()}
+    <MDBNavbar expand="lg" light bgColor="light" className="fixed-top">
+      <MDBContainer fluid>
+        <img
+          src="https://www.themealdb.com/images/logo-small.png"
+          height="30"
+          alt=""
+          loading="lazy"
+          className="cursor-pointor"
+          onClick={redirect}
+        />
+
+        <MDBNavbarToggler
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          onClick={() => setShowBasic(!showBasic)}
+        >
+          <MDBIcon icon="bars" fas />
+        </MDBNavbarToggler>
+
+        <MDBCollapse navbar show={showBasic}>
+          <MDBNavbarNav className="mr-auto mb-2 mb-lg-0"></MDBNavbarNav>
+
+          <form className="d-flex input-group w-100">
+            <input
+              type="search"
+              className="form-control"
+              placeholder="Search By Food Eg: Beef"
+              aria-label="Search"
+              onChange={(e) => {
+                onChange(e);
+              }}
             />
-            <div className="mx-auto">
-              <form className="input-group d-flex">
-                <input
-                  type="search"
-                  className="form-control"
-                  placeholder="Search"
-                  aria-label="Search"
-                  onChange={(e) => {
-                    onChange(e);
-                  }}
-                />
-              </form>
-            </div>
-          </MDBNavbarBrand>
-        </MDBContainer>
-      </MDBNavbar>
-    </>
+          </form>
+        </MDBCollapse>
+      </MDBContainer>
+    </MDBNavbar>
   );
 }
 

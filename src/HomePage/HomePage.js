@@ -29,7 +29,7 @@ function HomePage() {
     history.push(`/category/${cat}`);
   };
   return (
-    <div className="row">
+    <div className="row mt-5">
       {categories?.categories.map((data) => (
         <div
           className="col-md-6 col-xl-4  mb-5"

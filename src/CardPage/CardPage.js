@@ -93,14 +93,7 @@ function CardPage() {
                       type="button"
                       class="btn btn-primary btn-md mr-1 mb-2 waves-effect waves-light"
                     >
-                      Buy now
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-light btn-md mr-1 mb-2 waves-effect waves-light"
-                    >
-                      <MDBIcon fas icon="cart-arrow-down" />
-                      Add to cart
+                      Order Now
                     </button>
                   </div>
                 </>
